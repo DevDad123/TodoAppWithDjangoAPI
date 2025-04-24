@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/services/apiservice.dart';
 import 'package:todoapp/services/models.dart';
+import 'package:todoapp/screens/addtodoscreen.dart';  // Import the AddTodoScreen
 
 class TodoListScreen extends StatelessWidget {
   const TodoListScreen({super.key});
@@ -53,6 +54,17 @@ class TodoListScreen extends StatelessWidget {
           }
           return const Center(child: CircularProgressIndicator());
         },
+      ),
+      // Floating Action Button to navigate to the Add Todo Screen
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const AddTodoScreen()),
+          );
+        },
+        child: const Icon(Icons.add),
+        tooltip: 'Add Todo',
       ),
     );
   }
